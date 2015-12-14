@@ -16,33 +16,39 @@ function preload() {
 }
 function create() {
   firework();
-  var aircraft = game.add.sprite(100, 300, 'a0');
-  aircraft.anchor.setTo(0.5);
-  aircraft.scale.setTo(0.5);
-  var c = game.add.tween(aircraft);
-  c.to({ y: 200}, 1000, Phaser.Easing.Linear.None, false, 0, 0, false);
-  c.start();
-  //firework();
-  //places();
+  places();
 }
 
 function update() {
-  emitter.renderer.clear(0.09);
+  emitter.renderer.clear(0.05);
 }
 function render () {
 }
 function firework(){
   manager = game.plugins.add(Phaser.ParticleStorm);
-  manager.addData('red', {
+  manager.addData('color1', { //紅
     lifespan: 2000, //長
     red: { min: 200, max: 255 },
-    vx: { min: -1, max: 1 }, //寬
-    vy: { min: -2, max: 0 } //高
+    vx: { min: -0.8, max: 0.8 }, //寬
+    vy: { min: -1.8, max: -0.8 } //高
   });
-  manager.addData('yellow', {
+  manager.addData('color2', { //黃
     lifespan: 2000,
     red: 200,
     green: { min: 200, max: 255 },
+    vx: { min: -1, max: 1 },
+    vy: { min: -2, max: -0.6 }
+  });
+  manager.addData('color3', { //綠
+    lifespan: 2000,
+    green:255,
+    vx: { min: -1.5, max: 1.5 },
+    vy: { min: -2, max: 0 }
+  });
+  manager.addData('color4', { //藍
+    lifespan: 2000,
+    green:255,
+    blue:255,
     vx: { min: -1.5, max: 1.5 },
     vy: { min: -2, max: 0 }
   });
@@ -63,8 +69,10 @@ function firework(){
     position[count] = manager.createLineZone(setPosition[count].x, setPosition[count].y, setPosition[count].x, setPosition[count].y);//x,y to x,y (噴射口)
     //emitter.createGravityWell(setPosition[count].x, 500, 0, 500); //做會合點：x，y，角度？，拋距？
     emitter.addToWorld();
-    emitter.emit('red', 0, 0, { zone: position[count], total: 50, repeat: 5, frequency: 3000 }); //frequency 頻率：秒
-    emitter.emit('yellow', 0, 0, { zone: position[count], total: 50, repeat: 5, frequency: 3000 });
+    emitter.emit('color' + 1, 0, 0, { zone: position[count], total: 20, repeat: 5, frequency: 3000 }); //frequency 頻率：秒
+    emitter.emit('color' + 2, 0, 0, { zone: position[count], total: 20, repeat: 5, frequency: 3000 });
+    emitter.emit('color' + 3, 0, 0, { zone: position[count], total: 20, repeat: 5, frequency: 3000 });
+    emitter.emit('color' + 4, 0, 0, { zone: position[count], total: 20, repeat: 5, frequency: 3000 });
   }
 }
 function places(){
