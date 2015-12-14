@@ -1,0 +1,11 @@
+/* line 1, ../sass/index.sass */
+body {
+  padding: 10px;
+  margin: 0px;
+}
+/* line 4, ../sass/index.sass */
+body div#test {
+  position: absolute;
+  top: 400px;
+  left: 10px;
+}

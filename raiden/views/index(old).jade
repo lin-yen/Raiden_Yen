@@ -1,0 +1,57 @@
+doctype html
+html(lang='en' data-git=git data-rev=rev)
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no')
+  title Yen's Phaser Demo
+  link(rel='stylesheet' href='/css/stylesheets/index.css')
+  script(type='text/javascript',src='/js/phaser.min.js')
+body
+  div#test
+    table
+      tr
+        td
+          span 1 : 
+          input#no1(type='text')
+          br
+          span 2 : 
+          input#no2(type='text')
+          br
+          span 3 : 
+          input#no3(type='text')
+          br
+          span 4 : 
+          input#no4(type='text')
+          br
+          span 5 : 
+          input#no5(type='text')
+          br
+          span 6 : 
+          input#no6(type='text')
+          br
+          span 7 : 
+          input#no7(type='text')
+          br
+          span 8 : 
+          input#no8(type='text')
+          br
+          span 9 : 
+          input#no9(type='text')
+          br
+          span 10: 
+          input#no10(type='text')
+        td
+          p
+            span seed:
+            input#seed(type='text')
+          p
+            span 暴衝: 
+            input#power1(type='text')
+            input#power2(type='text')
+            input#power3(type='text')
+          p
+            span 腳本: 
+            input#action(type='text')
+          p
+           button#randomTest auto
+           button#run run
+  script(type='text/javascript',src='/js/main.js')
